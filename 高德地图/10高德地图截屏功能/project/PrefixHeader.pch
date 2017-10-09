@@ -1,0 +1,64 @@
+//
+//  PrefixHeader.pch
+//
+//  Created by Apple on 16/6/13.
+//  Copyright © 2016年 zhouyu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// 如果当前是OC的代码就用下面的这些东西
+// 主要是屏蔽c文件
+# ifdef __OBJC__
+
+#define NetworkErrorMessage @"网络延时,请求失败!!!请检查网络后重新尝试🙂"
+
+#define KUIScreenBounds [UIScreen mainScreen].bounds
+#define KUIScreenSize [UIScreen mainScreen].bounds.size
+#define KUIScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KUIScreenHeight [UIScreen mainScreen].bounds.size.height
+#define BackGroundColor(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
+
+//高德地图配置
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import "APIKey.h"
+
+#define MapAPIKey @"25713a70e4e2d7a8d6827e879a734a1c"
+
+
+/**
+ * http://www.wocoor.com/apii
+ *  实际测试
+ */
+#define BaseURLString @"http://www.wocoor.com/apii"
+
+/**
+ * http://www.wocoor.com/apii
+ *  订单的临时测试
+ */
+#define BaseDemoURLString @"http://192.168.1.173/test/api/apii"
+
+
+/**
+ * http://www.wocoor.com
+ *  部分图片的路径
+ */
+#define BaseADImageURLString @"http://www.wocoor.com"
+
+
+// 自定义输入日志 Log
+#ifdef  DEBUG // 如果当前是开发 调试阶段可以用ZYLog输入
+#define ZYLog(...) NSLog(__VA_ARGS__)
+#else // 发布后就不能输入了
+#define ZYLog(...)
+#endif
+
+
+#endif
+
+
+#endif /* PrefixHeader_pch */

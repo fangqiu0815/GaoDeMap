@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>bluetoothPeripheralUsage</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>calendarsDescription</string>
+	<key>NSCameraUsageDescription</key>
+	<string>cameraDescription</string>
+	<key>NSContactsUsageDescription</key>
+	<string>contactsDescription</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>locationAlwaysUsageDescription</string>
+	<key>NSLocationUsageDescription</key>
+	<string>locationUsageDescription</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>locationWhenInUseDescription</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>photoLibraryDescription</string>
+	<key>NSSiriUsageDescription</key>
+	<string>siriDescription</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDescription</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>mediaLibraryDescription</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>project</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

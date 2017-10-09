@@ -1,0 +1,11 @@
+platform :ios, ‘8.0’
+
+#项目名称(英文名称),替换成项目名称
+target ‘project’ do
+pod 'Masonry'
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SVProgressHUD'
+pod 'Bugly'
+
+end

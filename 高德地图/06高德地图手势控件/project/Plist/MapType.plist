@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>常规地图显示</string>
+		<key>vcName</key>
+		<string>MapViewNormalController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>显示小蓝点</string>
+		<key>vcName</key>
+		<string>MapViewBlueNodeController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>自定义小蓝点</string>
+		<key>vcName</key>
+		<string>MapViewDefineBlueNodeController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>持续定位</string>
+		<key>vcName</key>
+		<string>MapViewAlwaysGPSController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>地理编码</string>
+		<key>vcName</key>
+		<string>MapViewGeoCodeController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>反地理编码</string>
+		<key>vcName</key>
+		<string>MapViewReGeoCodeController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>POI检索</string>
+		<key>vcName</key>
+		<string>MapViewPOISearchController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>控件交互</string>
+		<key>vcName</key>
+		<string>MapViewControlsController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>手势交互</string>
+		<key>vcName</key>
+		<string>MapViewGesturesController</string>
+	</dict>
+</array>
+</plist>
