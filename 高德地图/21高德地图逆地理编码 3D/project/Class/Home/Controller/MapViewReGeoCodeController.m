@@ -43,6 +43,7 @@
     
     [self.search AMapReGoecodeSearch:regeo];
 }
+
 /**
  当逆地理编码成功时，会进到 onReGeocodeSearchDone 回调函数中，通过解析 AMapReGeocodeSearchResponse 获取这个点的地址信息（包括：标准化的地址、附近的POI、面区域 AOI、道路 Road等）。
  1）可以在回调中解析 response，获取地址信息。

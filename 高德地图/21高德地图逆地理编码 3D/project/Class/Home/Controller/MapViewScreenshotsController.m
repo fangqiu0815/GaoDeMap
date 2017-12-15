@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"截屏" style:UIBarButtonItemStyleDone target:self action:@selector(snapshot)];
+    
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
@@ -25,17 +28,40 @@
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
     
+    [self initToolBar];
+}
+
+- (void)snapshot{
     __block UIImage *screenshotImage = nil;
     __block NSInteger resState = 0;
-    CGRect inRect = CGRectMake(100, 100, 100, 100);
+//    CGRect inRect = CGRectMake(100, 100, 100, 100);
+    CGRect inRect = self.view.bounds;
     [self.mapView takeSnapshotInRect:inRect withCompletionBlock:^(UIImage *resultImage, NSInteger state) {
         screenshotImage = resultImage;
         resState = state; // state表示地图此时是否完整，0-不完整，1-完整
+        if (resState == 1) {
+            NSLog(@"截屏成功");
+            UIImageWriteToSavedPhotosAlbum(screenshotImage, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+        }
     }];
-    
-    
-    [self initToolBar];
 }
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    NSString *msg = nil ;
+    if(error != NULL){
+        msg = @"保存图片失败" ;
+        NSLog(@"保存图片失败");
+    }else{
+        msg = @"保存图片成功" ;
+        NSLog(@"保存图片成功");
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *OK = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:OK];
+    [self presentViewController:alert animated:YES completion:nil];
+
+    NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

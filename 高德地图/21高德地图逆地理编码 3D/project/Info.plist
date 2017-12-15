@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -34,6 +39,8 @@
 	<string>contactsDescription</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>始终允许访问位置信息</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>始终允许访问位置信息</string>
 	<key>NSLocationUsageDescription</key>
 	<string>永不允许访问位置信息</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -42,6 +49,8 @@
 	<string>microphoneDescription</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>photoLibraryDescription</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>使用期间允许访问相册</string>
 	<key>NSSiriUsageDescription</key>
 	<string>siriDescription</string>
 	<key>UIBackgroundModes</key>

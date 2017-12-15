@@ -32,7 +32,7 @@
     
     //比例尺控件
     _mapView.showsScale= YES;  //设置成NO表示不显示比例尺；YES表示显示比例尺
-    _mapView.scaleOrigin= CGPointMake(_mapView.scaleOrigin.x, 72);  //设置比例尺位置
+    _mapView.scaleOrigin= CGPointMake(_mapView.scaleOrigin.x - 40, 72);  //设置比例尺位置
     
     //地图logo控件
     _mapView.logoCenter = CGPointMake(10, KUIScreenHeight - 100);

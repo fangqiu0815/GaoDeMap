@@ -22,6 +22,9 @@
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     
+    //地图的缩放级别的范围是[3-19]
+    [_mapView setZoomLevel:16 animated:YES];
+    
     ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;
@@ -43,19 +46,19 @@
     //[_mapView setCenterCoordinate:center animated:YES];//地图平移时，缩放级别不变，可通过改变地图的中心点来移动地图
     
     //可以旋转3D矢量地图
-//    _mapView.rotateEnabled= NO;    //NO表示禁用旋转手势，YES表示开启
+    _mapView.rotateEnabled= YES;    //NO表示禁用旋转手势，YES表示开启
 //    [_mapView setRotationDegree:60.f animated:YES duration:0.5];//旋转角度的范围是[0.f 360.f]，以逆时针为正向
     //用户可以在地图上放置两个手指，移动它们一起向下或向上去增加或减小倾斜角
-//    _mapView.rotateCameraEnabled= NO;    //NO表示禁用倾斜手势，YES表示开启
+    _mapView.rotateCameraEnabled= NO;    //NO表示禁用倾斜手势，YES表示开启 是否有倾斜效果,一般定位,不是导航最好禁止
 //    [_mapView setCameraDegree:30.f animated:YES duration:0.5];//倾斜角度范围为[0.f, 45.f]
     
-//    指定屏幕中心点的手势操作
+//    指定屏幕中心点的手势操作--最好不要设置,让当前定位点为默认中心点
 //    MAMapStatus *status = [self.mapView getMapStatus];
 //    status.screenAnchor = CGPointMake(0.5, 0.76);//地图左上为(0,0)点，右下为(1,1)点。
 //    [self.mapView setMapStatus:status animated:NO];
     
     
-    [_mapView setZoomLevel:15.5 animated:YES];
+//    [_mapView setZoomLevel:15.5 animated:YES];
     
     [self initToolBar];
 }

@@ -23,6 +23,9 @@
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
     
+    //地图的缩放级别的范围是[3-19]
+    [_mapView setZoomLevel:15 animated:YES];
+    
     ///如果您需要进入地图就显示定位小蓝点，则需要下面两行代码
     _mapView.showsUserLocation = YES;
     _mapView.userTrackingMode = MAUserTrackingModeFollow;

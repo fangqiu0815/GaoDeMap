@@ -37,22 +37,19 @@
     pointAnnotation.coordinate = CLLocationCoordinate2DMake(39.989631, 116.481018);
     pointAnnotation.title = @"方恒国际";
     pointAnnotation.subtitle = @"阜通东大街6号";
-    
     [_mapView addAnnotation:pointAnnotation];
     
     
-    //添加自定义气泡
+    //添加自定义气泡--是指弹出内容在CustomCalloutView中
 //    (1） 新建自定义气泡类 CustomCalloutView，继承 UIView。
 // （2） 在 CustomCalloutView.h 中定义数据属性，包含：图片、商户名和商户地址。
     
-    //添加自定义AnnotationView
+    //添加自定义AnnotationView----参见CustomAnnotationView.h/m
 //    由于是高度自定义内容，以下文档中仅提供OC语言的示例：
 //    （1） 新建类CustomAnnotationView，继承MAAnnotationView或MAPinAnnotationView。若继承MAAnnotationView，则需要设置标注图标；若继承MAPinAnnotationView，使用默认的大头针标注
 //    （2） 在CustomAnnotationView.h中定义自定义气泡属性
     
     //(5） 修改ViewController.m，在MAMapViewDelegate的回调方法mapView:viewForAnnotation中的修改annotationView的类型
-
-    
      [self initToolBar];
 }
 
@@ -91,17 +88,15 @@
 //}
 
 //添加自定义样式点标记
-- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[MAPointAnnotation class]])
-    {
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation{
+    if ([annotation isKindOfClass:[MAPointAnnotation class]]){
         static NSString *reuseIndetifier = @"annotationReuseIndetifier";
         CustomAnnotationView *annotationView = (CustomAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
-        if (annotationView == nil)
-        {
+        if (annotationView == nil) {
             annotationView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
         }
-        annotationView.image = [UIImage imageNamed:@"tabbar_home_select"];
+        annotationView.image = [UIImage imageNamed:@"mine"];
+        annotationView.frame = CGRectMake(0, 0, 60, 60);
         
         // 设置为NO，用以调用自定义的calloutView
         annotationView.canShowCallout = NO;
