@@ -12,10 +12,10 @@
 #define kArrorHeight        10
 //（4） 定义用于显示气泡内容的控件，并添加到SubView中。
 #define kPortraitMargin     5
-#define kPortraitWidth      70
-#define kPortraitHeight     50
+#define kPortraitWidth      60
+#define kPortraitHeight     60
 
-#define kTitleWidth         120
+#define kTitleWidth         220
 #define kTitleHeight        20
 
 @interface CustomCalloutView ()
@@ -42,7 +42,7 @@
 //绘制背景边框填充
 - (void)drawInContext:(CGContextRef)context{
     CGContextSetLineWidth(context, 2.0);
-    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.8].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.9].CGColor);
     
     [self getDrawPath:context];
     CGContextFillPath(context);
@@ -94,10 +94,11 @@
     [self addSubview:self.titleLabel];
     
     // 添加副标题，即商户地址
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
+    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight * 2 - 5)];
     self.subtitleLabel.font = [UIFont systemFontOfSize:12];
-    self.subtitleLabel.textColor = [UIColor grayColor];
+    self.subtitleLabel.textColor = [UIColor blueColor];
     self.subtitleLabel.text = @"subtitleLabelsubtitleLabelsubtitleLabel";
+    self.subtitleLabel.numberOfLines = 0;
     [self addSubview:self.subtitleLabel];
 }
 

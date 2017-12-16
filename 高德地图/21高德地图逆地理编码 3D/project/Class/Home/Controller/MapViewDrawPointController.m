@@ -33,7 +33,6 @@
     pointAnnotation.coordinate = CLLocationCoordinate2DMake(39.989631, 116.481018);
     pointAnnotation.title = @"方恒国际";
     pointAnnotation.subtitle = @"阜通东大街6号";
-    
     [_mapView addAnnotation:pointAnnotation];
     
     [self initToolBar];

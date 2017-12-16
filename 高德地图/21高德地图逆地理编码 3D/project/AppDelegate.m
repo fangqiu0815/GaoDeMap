@@ -24,11 +24,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //     2.设置为窗口的跟控制器
-        if ([self isNewVersion]) {
-            self.window.rootViewController = [[GuideController alloc] init];
-        } else {
+//        if ([self isNewVersion]) {
+//            self.window.rootViewController = [[GuideController alloc] init];
+//        } else {
             self.window.rootViewController = [[TabBarController alloc] init];
-        }
+//        }
     
     [self.window makeKeyAndVisible];
     return YES;
