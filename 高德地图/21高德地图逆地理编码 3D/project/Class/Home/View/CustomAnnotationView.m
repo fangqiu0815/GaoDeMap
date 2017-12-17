@@ -13,7 +13,7 @@
 
 @interface CustomAnnotationView ()
 
-@property (nonatomic, strong, readwrite) CustomCalloutView *calloutView;
+//@property (nonatomic, strong, readwrite) CustomCalloutView *calloutView;
 
 @end
 

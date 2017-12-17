@@ -311,7 +311,7 @@
 //MARK: 点击搜索按钮
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self.searchController.searchBar endEditing:YES];
-    [self.searchController setActive:NO];
+//    [self.searchController setActive:NO];
 }
 
 //MARK: 搜索控制器

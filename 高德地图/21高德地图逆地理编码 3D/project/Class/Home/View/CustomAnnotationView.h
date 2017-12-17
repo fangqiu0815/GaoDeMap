@@ -10,5 +10,5 @@
 #import "CustomCalloutView.h"
 
 @interface CustomAnnotationView : MAAnnotationView
-@property (nonatomic, readonly) CustomCalloutView *calloutView;
+@property (nonatomic, strong, readwrite) CustomCalloutView *calloutView;
 @end
