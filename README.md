@@ -14,52 +14,50 @@
 ## 效果图
 
 <p align="center" >
+<span>整体.gif</span>
 <img src="Docs/整体.gif" title="整体.gif">
 </p>
 
-
 <p align="center" >
-<img src="Docs/天气预报.gif" title="天气预报.gif">
+<span>仿摩拜首页.gif</span>
+<img src="Docs/仿摩拜首页.gif" title="仿摩拜首页.gif">
 </p>
 
-
 <p align="center" >
-<img src="Docs/仿摩拜首页.gif" title="仿摩拜首页.giff">
-</p>
-
-
-<p align="center" >
+<span>关键字检索.gif</span>
 <img src="Docs/关键字检索.gif" title="关键字检索.gif">
 </p>
 
-
 <p align="center" >
+<span>自定义小蓝点.gif</span>
 <img src="Docs/自定义小蓝点.gif" title="自定义小蓝点.gif">
 </p>
 
-
-
 <p align="center" >
-<img src="Docs/自定义标记点.gif" title="自定义标记点.giff">
+<span>自定义标记点.gif</span>
+<img src="Docs/自定义标记点.gif" title="自定义标记点.gif">
 </p>
 
 
 <p align="center" >
+<span>持续定位.gif</span>
 <img src="Docs/持续定位.gif" title="持续定位.gif">
 </p>
 
 
 <p align="center" >
+<span>绘制折线/面.gif</span>
 <img src="Docs/绘制折线/面.gif" title="绘制折线/面.gif">
 </p>
 
 
 <p align="center" >
+<span>绘制标志点.gif</span>
 <img src="Docs/绘制标志点.gif" title="绘制标志点.gif">
 </p>
 
-
 <p align="center" >
+<span>海量点图层.gif</span>
 <img src="Docs/海量点图层.gif" title="海量点图层.gif">
 </p>
 
