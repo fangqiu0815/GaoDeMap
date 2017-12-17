@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2BE12DD68B22C480DE8B494A /* libPods-project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF44D577C516A822044FB2E3 /* libPods-project.a */; };
+		622817231FE6058B001F5A3C /* MapViewMoBikeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622817221FE6058B001F5A3C /* MapViewMoBikeController.m */; };
+		622817261FE60959001F5A3C /* CurrentLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 622817251FE60959001F5A3C /* CurrentLocationAnnotation.m */; };
 		622E2C161F341188006B9ABA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622E2C151F341188006B9ABA /* GLKit.framework */; };
 		622E2C181F341198006B9ABA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622E2C171F341198006B9ABA /* Security.framework */; };
 		622E2C1A1F3411DC006B9ABA /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622E2C191F3411DC006B9ABA /* AMapLocationKit.framework */; };
@@ -461,6 +463,10 @@
 /* Begin PBXFileReference section */
 		3C820C1D67B1B846EE627872 /* Pods-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-project/Pods-project.debug.xcconfig"; sourceTree = "<group>"; };
 		5366DE3D6E5158B768D0D2EE /* Pods-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.release.xcconfig"; path = "Pods/Target Support Files/Pods-project/Pods-project.release.xcconfig"; sourceTree = "<group>"; };
+		622817211FE6058B001F5A3C /* MapViewMoBikeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewMoBikeController.h; sourceTree = "<group>"; };
+		622817221FE6058B001F5A3C /* MapViewMoBikeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewMoBikeController.m; sourceTree = "<group>"; };
+		622817241FE60959001F5A3C /* CurrentLocationAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentLocationAnnotation.h; sourceTree = "<group>"; };
+		622817251FE60959001F5A3C /* CurrentLocationAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentLocationAnnotation.m; sourceTree = "<group>"; };
 		622E2C151F341188006B9ABA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		622E2C171F341198006B9ABA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		622E2C191F3411DC006B9ABA /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
@@ -1692,6 +1698,8 @@
 				622E2F671F345A00006B9ABA /* MapViewAutomaticInputPOIController.m */,
 				622E2F691F3465FF006B9ABA /* MapViewCityWeatherPOIController.h */,
 				622E2F6A1F3465FF006B9ABA /* MapViewCityWeatherPOIController.m */,
+				622817211FE6058B001F5A3C /* MapViewMoBikeController.h */,
+				622817221FE6058B001F5A3C /* MapViewMoBikeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1710,6 +1718,8 @@
 				622E2C341F342257006B9ABA /* CustomCalloutView.m */,
 				622E2C361F3423EA006B9ABA /* CustomAnnotationView.h */,
 				622E2C371F3423EA006B9ABA /* CustomAnnotationView.m */,
+				622817241FE60959001F5A3C /* CurrentLocationAnnotation.h */,
+				622817251FE60959001F5A3C /* CurrentLocationAnnotation.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2332,11 +2342,13 @@
 				6286864E1F33636F004185E3 /* AppDelegate.m in Sources */,
 				628686D71F338C87004185E3 /* MapViewGesturesController.m in Sources */,
 				6286864B1F33636F004185E3 /* main.m in Sources */,
+				622817231FE6058B001F5A3C /* MapViewMoBikeController.m in Sources */,
 				622E2F6B1F3465FF006B9ABA /* MapViewCityWeatherPOIController.m in Sources */,
 				628686A31F337EF2004185E3 /* MapViewBlueNodeController.m in Sources */,
 				628686691F3366E2004185E3 /* GuideController.m in Sources */,
 				628686911F336FA6004185E3 /* HomeController.m in Sources */,
 				622E2F5C1F34549B006B9ABA /* MapViewKeyWordPOIController.m in Sources */,
+				622817261FE60959001F5A3C /* CurrentLocationAnnotation.m in Sources */,
 				622E2F651F3459E9006B9ABA /* MapViewIDPOIController.m in Sources */,
 				622E2F681F345A00006B9ABA /* MapViewAutomaticInputPOIController.m in Sources */,
 				622E2C261F341E26006B9ABA /* MapViewDrawPointController.m in Sources */,

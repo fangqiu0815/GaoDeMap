@@ -62,17 +62,17 @@
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     
-//    请求参数类为 AMapPOIAroundSearchRequest，location是必设参数
-    
-    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
-    
-    request.location            = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
-    request.keywords            = @"电影院";
-    /* 按照距离排序. */
-    request.sortrule            = 0;
-    request.requireExtension    = YES;
-    
-    [self.search AMapPOIAroundSearch:request];
+////    请求参数类为 AMapPOIAroundSearchRequest，location是必设参数
+//    
+//    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+//    
+//    request.location            = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
+//    request.keywords            = @"电影院";
+//    /* 按照距离排序. */
+//    request.sortrule            = 0;
+//    request.requireExtension    = YES;
+//    
+//    [self.search AMapPOIAroundSearch:request];
     
     
     //获取当前定位信息

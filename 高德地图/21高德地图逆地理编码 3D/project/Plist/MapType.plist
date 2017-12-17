@@ -134,5 +134,11 @@
 		<key>vcName</key>
 		<string>MapViewCityWeatherPOIController</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>高仿摩拜首页</string>
+		<key>vcName</key>
+		<string>MapViewMoBikeController</string>
+	</dict>
 </array>
 </plist>
