@@ -34,11 +34,6 @@
 
 
 <p align="center" >
-<img src="Docs/关键字搜索.gif" title="关键字搜索.giff">
-</p>
-
-
-<p align="center" >
 <img src="Docs/自定义小蓝点.gif" title="自定义小蓝点.gif">
 </p>
 
