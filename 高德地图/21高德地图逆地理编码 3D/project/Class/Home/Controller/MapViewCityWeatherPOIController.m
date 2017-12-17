@@ -126,28 +126,6 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"白天天气现象: %@--白天温度: %@--白天风力: %@",object.dayWeather,object.dayTemp,object.dayPower];;
     return cell;
 }
-/*
- ///日期
- @property (nonatomic, copy) NSString *date;
- ///星期
- @property (nonatomic, copy) NSString *week;
- ///白天天气现象
- @property (nonatomic, copy) NSString *dayWeather;
- ///晚上天气现象
- @property (nonatomic, copy) NSString *nightWeather;
- ///白天温度
- @property (nonatomic, copy) NSString *dayTemp;
- ///晚上温度
- @property (nonatomic, copy) NSString *nightTemp;
- ///白天风向
- @property (nonatomic, copy) NSString *dayWind;
- ///晚上风向
- @property (nonatomic, copy) NSString *nightWind;
- ///白天风力
- @property (nonatomic, copy) NSString *dayPower;
- ///晚上风力
- @property (nonatomic, copy) NSString *nightPower;
- */
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
