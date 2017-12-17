@@ -11,15 +11,28 @@
 
 #import "MapViewCityWeatherPOIController.h"
 
-@interface MapViewCityWeatherPOIController ()<MAMapViewDelegate,AMapSearchDelegate>
+@interface MapViewCityWeatherPOIController ()<MAMapViewDelegate, AMapSearchDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapSearchAPI *search;
+@property (nonatomic, strong) AMapWeatherSearchRequest *request ;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *segment;
+@property (nonatomic, copy) NSArray *cityArr;
+@property (nonatomic, copy) NSArray *cityCodeArr;
+@property (nonatomic, copy) NSMutableArray *resultsArrM;
 @end
 
 @implementation MapViewCityWeatherPOIController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:self.cityArr];
+    [segment addTarget:self action:@selector(citySelect:) forControlEvents:UIControlEventValueChanged];
+    self.segment = segment;
+    segment.selectedSegmentIndex = 0;
+    self.navigationItem.titleView = segment;
+    
     
     self.mapView = [[MAMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -32,6 +45,18 @@
     
     [self initToolBar];
     
+    [self setSearchAPI];
+    
+    [self.view addSubview:self.tableView];
+}
+
+- (void)citySelect:(UISegmentedControl *)sender{
+    NSString *cityCode = self.cityCodeArr[sender.selectedSegmentIndex];
+    self.request.city = cityCode;
+    [self.search AMapWeatherSearch:self.request];
+}
+
+- (void)setSearchAPI{
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     
@@ -40,11 +65,11 @@
      */
     
     AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
-    request.city = @"110000";
-//    request.type = AMapWeatherTypeLive; //AMapWeatherTypeLive为实时天气；AMapWeatherTypeForecast为预报天气
+    self.request = request;
+    request.city = @"110000";//默认北京
+    //    request.type = AMapWeatherTypeLive; //AMapWeatherTypeLive为实时天气；AMapWeatherTypeForecast为预报天气
     request.type = AMapWeatherTypeForecast; //AMapWeatherTypeLive为实时天气；AMapWeatherTypeForecast为预报天气
     [self.search AMapWeatherSearch:request];
-    
 }
 
 /**
@@ -53,29 +78,6 @@
  1）通过 response.lives 获取城市对应实时天气数据信息，实时天气详细信息参考 AMapLocalWeatherLive 类。
  2）通过 response.forecasts 获取城市对应预报天气数据信息，预报天气详细信息参考 AMapLocalWeatherForecast 类。
  3）可查询未来3天的预报天气，通过 AMapLocalWeatherForecast.casts 获取预报天气列表。
- 
- ///天气查询返回
- @interface AMapWeatherSearchResponse : AMapSearchObject
- ///实时天气数据信息 AMapLocalWeatherLive 数组，仅在请求实时天气时有返回。
- @property (nonatomic, strong) NSArray<AMapLocalWeatherLive *> *lives;
- ///预报天气数据信息 AMapLocalWeatherForecast 数组，仅在请求预报天气时有返回
- @property (nonatomic, strong) NSArray<AMapLocalWeatherForecast *> *forecasts;
- 
- @end
- 
- ///天气预报类，支持当前时间在内的3天的天气进行预报
- @interface AMapLocalWeatherForecast : AMapSearchObject
- ///区域编码
- @property (nonatomic, copy)   NSString *adcode;
- ///省份名
- @property (nonatomic, copy)   NSString *province;
- ///城市名
- @property (nonatomic, copy)   NSString *city;
- ///数据发布时间
- @property (nonatomic, copy)   NSString *reportTime;
- ///天气预报AMapLocalDayWeatherForecast数组
- @property (nonatomic, strong) NSArray<AMapLocalDayWeatherForecast *> *casts;
- @end
  */
 - (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response{
 //    if (response.lives.count == 0){
@@ -90,6 +92,8 @@
     if (response.forecasts.count == 0){
         return;
     }
+    
+    [self.resultsArrM removeAllObjects];
     for (AMapLocalWeatherForecast *object in response.forecasts) {
         ZYLog(@"uid = %@--%@--%@--%@--%@",object.adcode,object.province,object.city,object.reportTime,object.casts);
     }
@@ -97,26 +101,32 @@
     NSArray *casts = weatherForecast.casts;
     for (AMapLocalDayWeatherForecast *object in casts) {
         ZYLog(@"uid = %@--%@--%@--%@",object.date,object.week,object.dayWeather,object.nightWeather);
+        [self.resultsArrM addObject:object];
     }
-    
-    /**
-     2017-08-04 16:35:53.326 project[2191:592071] uid = 110000--北京--北京市--2017-08-04 11:00:00--[
-                                                                                                <AMapLocalDayWeatherForecast: 0x1390a4ef0>,
-                                                                                                <AMapLocalDayWeatherForecast: 0x13704e590>,
-                                                                                                <AMapLocalDayWeatherForecast: 0x13704ced0>,
-                                                                                                <AMapLocalDayWeatherForecast: 0x1390b8520>
-                                                                                            ]
-     2017-08-04 16:35:53.326 project[2191:592071] uid = 2017-08-04--5--晴--多云
-     2017-08-04 16:35:53.326 project[2191:592071] uid = 2017-08-05--6--雷阵雨--雷阵雨
-     2017-08-04 16:35:53.326 project[2191:592071] uid = 2017-08-06--7--晴--晴
-     2017-08-04 16:35:53.327 project[2191:592071] uid = 2017-08-07--1--晴--晴
-     */
-
+    [self.tableView reloadData];
 }
 
-/**
- ///某一天的天气预报信息
- @interface AMapLocalDayWeatherForecast : AMapSearchObject
+//当检索失败时，会进入 didFailWithError 回调函数，通过该回调函数获取产生的失败的原因。
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error{
+    NSLog(@"Error: %@", error);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.resultsArrM.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    AMapLocalDayWeatherForecast *object = self.resultsArrM[indexPath.row];
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"日期:%@--星期:%@",object.date,object.week];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"白天天气现象: %@--白天温度: %@--白天风力: %@",object.dayWeather,object.dayTemp,object.dayPower];;
+    return cell;
+}
+/*
  ///日期
  @property (nonatomic, copy) NSString *date;
  ///星期
@@ -137,38 +147,7 @@
  @property (nonatomic, copy) NSString *dayPower;
  ///晚上风力
  @property (nonatomic, copy) NSString *nightPower;
- @end
  */
-
-
-/**
- ///实况天气，仅支持中国大陆、香港、澳门的数据返回
- @interface AMapLocalWeatherLive : AMapSearchObject
- ///区域编码
- @property (nonatomic, copy) NSString *adcode;
- ///省份名
- @property (nonatomic, copy) NSString *province;
- ///城市名
- @property (nonatomic, copy) NSString *city;
- ///天气现象
- @property (nonatomic, copy) NSString *weather;
- ///实时温度
- @property (nonatomic, copy) NSString *temperature;
- ///风向
- @property (nonatomic, copy) NSString *windDirection;
- ///风力，单位：级
- @property (nonatomic, copy) NSString *windPower;
- ///空气湿度
- @property (nonatomic, copy) NSString *humidity;
- ///数据发布时间
- @property (nonatomic, copy) NSString *reportTime;
- @end
- */
-
-//当检索失败时，会进入 didFailWithError 回调函数，通过该回调函数获取产生的失败的原因。
-- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error{
-    NSLog(@"Error: %@", error);
-}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -193,6 +172,37 @@
     [mapTypeSegmentedControl addTarget:self action:@selector(mapTypeAction:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *mayTypeItem = [[UIBarButtonItem alloc] initWithCustomView:mapTypeSegmentedControl];
     self.toolbarItems = [NSArray arrayWithObjects:flexbleItem, mayTypeItem, flexbleItem, nil];
+}
+
+//MARK: 结果展示
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 44 + [UIApplication sharedApplication].statusBarFrame.size.height, self.view.bounds.size.width - 20, self.view.bounds.size.height - 44 - [UIApplication sharedApplication].statusBarFrame.size.height) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.45];
+        _tableView.tableFooterView = [[UIView alloc] init];
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
+}
+- (NSArray *)cityArr{
+    if (_cityArr == nil) {
+        _cityArr = @[@"  北京  ",@"  上海  ",@"  广州  ",@"  杭州  ",@"  信阳  "];
+    }
+    return _cityArr;
+}
+- (NSArray *)cityCodeArr{
+    if (_cityCodeArr == nil) {
+        _cityCodeArr = @[@"110000",@"310000",@"440100",@"330100",@"411500"];
+    }
+    return _cityCodeArr;
+}
+- (NSMutableArray *)resultsArrM{
+    if (_resultsArrM == nil) {
+        _resultsArrM = [[NSMutableArray alloc] init];
+    }
+    return _resultsArrM;
 }
 
 @end
