@@ -14,7 +14,6 @@
 ## 效果图
 
 <p align="center" >
-<div align="center" >整体.gif</div>
 <img src="Docs/整体.gif" title="整体.gif">
 </p>
 
@@ -22,7 +21,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >天气预报.gif</div>
 <img src="Docs/天气预报.gif" title="天气预报.gif">
 </p>
 
@@ -30,7 +28,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >仿摩拜首页.gif</div>
 <img src="Docs/仿摩拜首页.gif" title="仿摩拜首页.giff">
 </p>
 
@@ -38,7 +35,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >关键字检索.gif</div>
 <img src="Docs/关键字检索.gif" title="关键字检索.gif">
 </p>
 
@@ -46,7 +42,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >关键字搜索.gif</div>
 <img src="Docs/关键字搜索.gif" title="关键字搜索.giff">
 </p>
 
@@ -54,7 +49,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >自定义小蓝点.gif</div>
 <img src="Docs/自定义小蓝点.gif" title="自定义小蓝点.gif">
 </p>
 
@@ -63,7 +57,6 @@
 
 
 <p align="center" >
-<div align="center" >自定义标记点.gif</div>
 <img src="Docs/自定义标记点.gif" title="自定义标记点.giff">
 </p>
 
@@ -71,7 +64,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >持续定位.gif</div>
 <img src="Docs/持续定位.gif" title="持续定位.gif">
 </p>
 
@@ -79,7 +71,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >绘制折线/面.gif</div>
 <img src="Docs/绘制折线/面.gif" title="绘制折线/面.gif">
 </p>
 
@@ -87,7 +78,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >绘制标志点.gif</div>
 <img src="Docs/绘制标志点.gif" title="绘制标志点.gif">
 </p>
 
@@ -95,7 +85,6 @@
 <br>
 
 <p align="center" >
-<div align="center" >海量点图层.gif</div>
 <img src="Docs/海量点图层.gif" title="海量点图层.gif">
 </p>
 
